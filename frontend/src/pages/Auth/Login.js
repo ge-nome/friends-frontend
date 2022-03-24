@@ -30,9 +30,9 @@ function Login() {
             </div>
 
             <div className="button-sec-holder">
-                {//<CommonBtn onChangeClick={loginFun} label="Sign in" />
+                {<CommonBtn onChangeClick={loginFun} label="Sign in" />
                 }
-                <button className="enter-btn" ><Link to="/feeds" className="">Sign in</Link></button>
+                {/*</div>{<button className="enter-btn" ><Link to="/feeds" className="">Sign in</Link></button>*/}
                 <button className="enter-btn" ><FcGoogle size={30}/><div style={{margin:10}} /> Sign in with Google</button>
             </div>
 

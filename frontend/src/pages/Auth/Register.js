@@ -33,9 +33,9 @@ function Register() {
             </div>
             
             <div className="button-sec-holder">
-                {//<CommonBtn onChangeClick={loginFun} label="Sign up" />
+                {<CommonBtn onChangeClick={loginFun} label="Sign up" />
                 }
-                <button className="enter-btn" ><Link to="/signin" className="">Sign up</Link></button>
+              { /* <button className="enter-btn" ><Link to="/signin" className="">Sign up</Link></button>*/}
             </div>
 
             <div className="login-footer">
