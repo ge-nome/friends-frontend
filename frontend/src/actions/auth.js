@@ -13,10 +13,6 @@ export const login =  (data) => dispatch => {
         type: LOGIN,
         payload: res.data
       })
-      dispatch({
-        type: SET_CURRENT_USER,
-        payload: res.data
-      })
       dispatch(setAuth(res))
    } )
    .catch( err =>
@@ -50,11 +46,12 @@ export const cheackAut =  () => dispatch => {
   //console.log(userData, history)
   dispatch({type:LOADING})
   const locId= localStorage.getItem("friendapp")
-  console.log(locId);
+  console.log("id:",locId);
   axios.get(`https://friendsapp-api.herokuapp.com/profile/${locId}`)
    .then(res => {
-     console.log(res.data);
-     return !isEmpty(res.data)
+     console.log("data:", res.data);
+     dispatch(setAuth(res))
+     //return !isEmpty(res.data)
    })
    .catch( err =>
       { dispatch({
@@ -71,7 +68,10 @@ export const setAuth = (res) => dispatch => {
   console.log(_id);
       //Set token to localStorage
       localStorage.setItem('friendapp', _id );
-     
+      dispatch({
+        type: SET_CURRENT_USER,
+        payload: res.data
+      })
      
 }
 export const clearAuth = () => dispatch => {

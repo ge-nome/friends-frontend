@@ -7,6 +7,7 @@ import HomeHeader from "./Hcomponent/HomeHeader";
 
 
 function HomeFeed() {
+   
     const [users, setUsers] = useState([{
         name: "Musterfa",
         date: "11:12 pm 2 2022",
@@ -49,7 +50,9 @@ function HomeFeed() {
                 {
                     users.map((e, i) => {
                         return (
-                            <Cards key={i} name={e.name} date={e.date} feelings={e.feelings} emoji={e.emoji}/>
+                            
+                               <Cards key={i} name={e.name} date={e.date} feelings={e.feelings} emoji={e.emoji} />
+                            
                         )
                     })
                 }

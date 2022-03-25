@@ -542,3 +542,20 @@ button.send-message {
   background: #225aff;
   color: white;
 }
+
+button.more-btn__ {
+  border: none;
+  background: none;
+  outline: none;
+  color: white;
+}
+
+button.cancel-btn__ {
+  border: none;
+  background: #225aff;
+  color: white;
+  padding: 10px;
+  margin: 10px  auto;
+  border-radius: 20px;
+}
+

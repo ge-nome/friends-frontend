@@ -5,13 +5,14 @@ import { connect } from 'react-redux';
 import { useEffect } from "react";
 import { cheackAut } from "../actions/auth";
 
-function Footer({ auth }) {
+function Footer({ auth, cheackAut }) {
 
 
     const nav = useNavigate()
-    useEffect(()=>{
-        cheackAut()?nav("/feeds"):nav("/signin");
-
+  useEffect(() => {
+      cheackAut()
+      auth.isAuthenticated?nav("/feeds"):nav("/signin");
+       // console.log("auth :", auth.user, "auth auth", auth.isAuthenticated)
       //  nav("/feeds")
         
     },[auth.isAuthenticated])
@@ -23,7 +24,7 @@ function Footer({ auth }) {
         return false
     }
    
-    if(cheackAut()){
+    if(auth.isAuthenticated){
     return (
         <div className="footer_nave">
             <Link to="/feeds"><AiFillHome  className={`icons-footer-${cheeckLoc("/feeds")&&"active"}`}  /></Link>
@@ -43,4 +44,4 @@ function Footer({ auth }) {
     errors: state.errors
   });
 
-  export default connect( mapStateToProps, )( Footer );
+  export default connect( mapStateToProps, {cheackAut} )( Footer );
