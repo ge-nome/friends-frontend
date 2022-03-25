@@ -9,7 +9,7 @@ function Cards({emoji, feelings, date, name}) {
 
    
     return (
-        <div className="card-component">
+        <div className={`card-component ${feelings}`} >
             <ProfileImg />
             <div className="write-up">
                 <div className="card-date">{date}</div>

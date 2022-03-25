@@ -18,7 +18,7 @@ function Login() {
         console.log(password, email);
     }
     return (
-        <div className="log-in-container">
+        <div className="log-in-container bottom-margin">
             <div className="login-header">
                 <h2>Welcome!</h2>
                 <small className="text-color">Please sign in your account</small>
@@ -33,7 +33,7 @@ function Login() {
                 {<CommonBtn onChangeClick={loginFun} label="Sign in" />
                 }
                 {/*</div>{<button className="enter-btn" ><Link to="/feeds" className="">Sign in</Link></button>*/}
-                <button className="enter-btn" ><FcGoogle size={30}/><div style={{margin:10}} /> Sign in with Google</button>
+                <button onClick={googleAuth} className="enter-btn" ><FcGoogle size={30}/><div style={{margin:10}} /> Sign in with Google</button>
             </div>
 
             <div className="login-footer">

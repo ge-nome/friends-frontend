@@ -20,7 +20,7 @@ function Register() {
         console.log(password, email);
     }
     return (
-        <div className="log-in-container">
+        <div className="log-in-container bottom-margin">
             <div className="login-header">
                 <h2>Create Account</h2>
                 <small className="text-color">Please fill the form</small>

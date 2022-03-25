@@ -41,7 +41,7 @@ function HomeFeed() {
 
    
     return (
-        <div className="home-feed-container">
+        <div className="home-feed-container bottom-margin">
             <HomeHeader />
             
             <div className="mood-enter-div"><Link to='/' ><div className="say-mood-div">How You Feeling Today?</div></Link></div>
@@ -49,7 +49,7 @@ function HomeFeed() {
                 {
                     users.map((e, i) => {
                         return (
-                            <Cards name={e.name} date={e.date} feelings={e.feelings} emoji={e.emoji}/>
+                            <Cards key={i} name={e.name} date={e.date} feelings={e.feelings} emoji={e.emoji}/>
                         )
                     })
                 }
