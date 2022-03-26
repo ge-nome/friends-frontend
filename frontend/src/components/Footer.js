@@ -23,7 +23,7 @@ function Footer({ auth }) {
         </div>
         );
     }
-    return <div className="not-auth">For the love of it</div>
+    return <div className="not-auth"></div>
   }
 
   export default Footer;
