@@ -1,8 +1,8 @@
 
 import {useState} from "react"
 import { Link } from "react-router-dom";
-import {AiOutlineSearch} from "react-icons/ai"
 import BackBtn from "../../components/BackBtn";
+import Search from "../../components/Search";
 
 
 
@@ -39,10 +39,10 @@ function Message() {
     return (
         <div className="message-feed-container bottom-margin">
           <BackBtn/>
-            
+            <Search show="Search"/>
             <div className="row-users-search">
-                <div className="search-div"><AiOutlineSearch size={30}/><input className="search-input" type="search" placeholder="search"/></div>
-                <div className="message-div">
+                
+                <div className="row-users-search">
                     <div className="message-header">Messages</div>
                     <div className="users-row-holder">
                         {
