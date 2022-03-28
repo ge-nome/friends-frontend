@@ -7,6 +7,7 @@ import BackBtn from "../../components/BackBtn";
 
 
 function MessageChat() {
+    const [message, setMessage]=useState("")
     const [users, setUsers] = useState([
         {
             date:"11:11",
@@ -65,6 +66,11 @@ function MessageChat() {
                             })
                         }
                     </div>
+               
+                </div>
+                <div className="message-input">
+                    <input onChange={(e)=>{setMessage(e.target.value)}} value={message} placeholder="Send message"  type="text" className="enter-message"/>
+                    <button className="send-message">Send</button>
                 </div>
             </div>
         </div>

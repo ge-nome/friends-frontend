@@ -8,11 +8,13 @@ import {
 import Login from './pages/Auth/Login';
 import Register from './pages/Auth/Register';
 import HomeFeed from './pages/Home/Home';
-import Welcome from './pages/Home/Welcome';
+import Welcome from './pages/Auth/Welcome';
 import Suggestions from './pages/Home/Suggestions';
 import Footer from './components/Footer';
 import Message from './pages/Message/Messages';
 import MessageChat from './pages/Message/Chatpage';
+import Notification from './pages/Notifications/Notifications';
+import Profile from './pages/Profile';
 
 
 function App() {
@@ -27,6 +29,8 @@ function App() {
         <Route path="/signup" element={<Register />}/>
         <Route path="/suggestions" element={<Suggestions />} />
         <Route path="/welcome" element={<Welcome />} />
+        <Route path="/notification" element={<Notification />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
       <Footer auth={true}/>
   </BrowserRouter>

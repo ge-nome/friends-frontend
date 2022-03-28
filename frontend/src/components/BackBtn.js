@@ -1,12 +1,14 @@
 //import {useState} from "react";
-import { Link, } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import {AiOutlineArrowLeft} from "react-icons/ai"
 
 function BackBtn({ auth }) {
  
+  const nav = useNavigate()
+ 
     return (
         
-          <div className="top-holder"> <div className="back-button"><AiOutlineArrowLeft size={40}/></div></div>
+          <div className="top-holder"> <button onClick={()=>nav(-1)} className="back-button"><AiOutlineArrowLeft size={40}/></button></div>
        
         );
     }
