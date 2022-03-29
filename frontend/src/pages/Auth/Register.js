@@ -1,10 +1,10 @@
-import { useState} from "react";
-import { useLocation, useNavigate } from "react-router";
+import { useState, useEffect} from "react";
+import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import CommonBtn from "./Acomponents/CommonBtn";
 import CommonInput from "./Acomponents/LoginInputes";
 import FeedbackMessage from "./Acomponents/FeedbackMessage.js";
-import { FcGoogle } from "react-icons/fc";
+
 
 
 function Register() {
@@ -18,20 +18,26 @@ function Register() {
     const navigate = useNavigate()
     const location = '/signin'
   
+
+    useEffect(() => {
+    if (submitted){
+        return navigate("/signin");
+    }
+    },[submitted]);
     const handleUname= (e) =>{
-        setUsername(e.target.value)
+        setUsername(e)
         setSubmitted(false)
     }
     const handlePhone= (e) =>{
-        setPhone(e.target.value)
+        setPhone(e)
         setSubmitted(false)
     }
     const handleEmail= (e) =>{
-        setEmail(e.target.value)
+        setEmail(e)
         setSubmitted(false)
     }
     const handlePassword= (e) =>{
-        setPassword(e.target.value)
+        setPassword(e)
         setSubmitted(false)
     }
     const errorMessage = (e) =>{
@@ -49,6 +55,7 @@ function Register() {
         )
     }
     const apiPost = () =>{
+        console.log("clicked");
         fetch('https://friendsapp-api.herokuapp.com/create/user/auth', {
                 method: 'POST',
                 body: JSON.stringify(
@@ -63,29 +70,30 @@ function Register() {
                     'Content-Type': 'application/json; charset=UTF-8',
                 },
             })
-                .then((response) => response.json())
-                .then((json)=> console.log(json));
+                .then((response) => {
+                    console.log("clicked");
+                     response.json()
+                     console.log(response);})
+                .then((json)=>{
+                 console.log("clicked");
+                 console.log(json)
+                 });
     }
-    const loginFun = async (e) => {
+    const signupFun = async (e) => {
         e.preventDefault();
         if(username === '' || email === '' || password === '' || phone === ''){
+            console.log("error");
             setError(true)
         }else{
             apiPost()
             apiPost ? setSubmitted(true) : setSubmitted(false)
-            if (setSubmitted) {
-                setTimeout(() => navigate(location), 3000); 
-            }
-
-            // return <Redirect to='/signin' />
+             return  
             // signup.push({"email":email, "password":password,"number":phone, "username":username}   )
         }
         // console.log('jsad');
         // console.log(password, email);
     }
-    const googleAuth = () => {
-        console.log(password, email);
-    }
+
     return (
         <div className="log-in-container bottom-margin">
             <div className="login-header">
@@ -102,7 +110,7 @@ function Register() {
             </div>
             
             <div className="button-sec-holder">
-                <CommonBtn onChangeFun={loginFun}  label="Sign up" type="submit" />
+                <CommonBtn onChangeClick={signupFun}  label="Sign up" type="submit" />
             </div>
 
             <div className="login-footer">

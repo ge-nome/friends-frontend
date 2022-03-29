@@ -1,12 +1,11 @@
 
 import {useState} from "react"
-import { Link } from "react-router-dom";
-import Cards from "./Hcomponent/FeelingsCard";
-import HomeHeader from "./Hcomponent/HomeHeader";
+import HomeHeader from "./Home/Hcomponent/HomeHeader";
 
 
 
-function HomeFeed() {
+
+function AddPost() {
     const [fellings, setFeelings] = useState([{
        
         feelings:"Happy",
@@ -43,7 +42,10 @@ function HomeFeed() {
                 {
                     fellings.map((e, i) => {
                         return (
-                            <Cards key={i} name={e.name} date={e.date} feelings={e.feelings} emoji={e.emoji}/>
+                            <div className="select-felling" key={i} >
+                                <div>{e.feelings}</div>
+                                <div>{e.emoji}</div>
+                            </div>
                         )
                     })
                 }
@@ -54,4 +56,4 @@ function HomeFeed() {
     );
   }
 
-  export default HomeFeed;
+  export default AddPost;
