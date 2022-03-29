@@ -15,10 +15,14 @@ import Message from './pages/Message/Messages';
 import MessageChat from './pages/Message/Chatpage';
 import Notification from './pages/Notifications/Notifications';
 import Profile from './pages/Profile';
+import AddPost from './pages/AddPost';
+import { Provider } from 'react-redux';
+import store from './store';
 
 
 function App() {
   return (
+    <Provider store={ store }>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomeFeed />} />
@@ -31,9 +35,11 @@ function App() {
         <Route path="/welcome" element={<Welcome />} />
         <Route path="/notification" element={<Notification />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/add" element={<AddPost />} />
       </Routes>
       <Footer auth={true}/>
   </BrowserRouter>
+  </Provider>
   );
 }
 

@@ -528,3 +528,17 @@ button.send-message {
   align-items: center;
   justify-content: space-between;
 }
+
+.select-felling {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #225aff;
+  margin: 20px auto;
+}
+.select-felling:hover {
+  background: #225aff;
+  color: white;
+}

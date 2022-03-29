@@ -1,8 +1,8 @@
 
-function CommonBtn({ onChangeFun, label}) {
+function CommonBtn({ onChangeClick, label}) {
     return (
         
-        <button className="enter-btn" value={label} onClick={onChangeFun} >{label}</button>
+        <button className="enter-btn" value={label} onClick={onChangeClick} >{label}</button>
     );
   }
   export default CommonBtn;

@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import CommonBtn from "./Acomponents/CommonBtn";
 import CommonInput from "./Acomponents/LoginInputes";
 import { FcGoogle } from "react-icons/fc";
-
+import { login } from "../../actions/auth";
+import { connect } from 'react-redux';
 
 function Login() {
 
@@ -12,7 +13,8 @@ function Login() {
 
   
     const loginFun = () => {
-        console.log(password, email);
+       login()
+       
     }
     const googleAuth = () => {
         console.log(password, email);
@@ -43,4 +45,10 @@ function Login() {
     );
   }
 
-  export default Login;
+  const mapStateToProps = ( state ) => ({
+    auth: state.auth,
+    errors: state.errors
+  });
+
+  export default connect( mapStateToProps, { login } )( Login );
+ 
