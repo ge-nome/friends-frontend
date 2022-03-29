@@ -1,20 +1,87 @@
-import {useState} from "react";
+import { useState} from "react";
+import { useLocation, useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import CommonBtn from "./Acomponents/CommonBtn";
 import CommonInput from "./Acomponents/LoginInputes";
+import FeedbackMessage from "./Acomponents/FeedbackMessage.js";
 import { FcGoogle } from "react-icons/fc";
 
 
 function Register() {
 
-    const [fullName, setFullname] = useState("")
+    const [username, setUsername] = useState("")
     const [phone, setPhone] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-
+    const [submitted, setSubmitted] = useState(false)
+    const [error, setError] = useState(false)
+    const navigate = useNavigate()
+    const location = '/signin'
   
-    const loginFun = () => {
-        console.log(password, email);
+    const handleUname= (e) =>{
+        setUsername(e.target.value)
+        setSubmitted(false)
+    }
+    const handlePhone= (e) =>{
+        setPhone(e.target.value)
+        setSubmitted(false)
+    }
+    const handleEmail= (e) =>{
+        setEmail(e.target.value)
+        setSubmitted(false)
+    }
+    const handlePassword= (e) =>{
+        setPassword(e.target.value)
+        setSubmitted(false)
+    }
+    const errorMessage = (e) =>{
+        return (
+            <div>
+                {error ? <FeedbackMessage cname="error" message="Take care of all empty fields"/> : ""}
+            </div>
+        )
+    }
+    const successMessage = (e) =>{
+        return (
+            <div>
+                {submitted ? <FeedbackMessage cname="success" message="Successfully signed in"/> : ""}
+            </div>
+        )
+    }
+    const apiPost = () =>{
+        fetch('https://friendsapp-api.herokuapp.com/create/user/auth', {
+                method: 'POST',
+                body: JSON.stringify(
+                    {
+                        "email": email,
+                        "username": username,
+                        "password": password,
+                        "number": phone
+                    }
+                ),
+                headers: {
+                    'Content-Type': 'application/json; charset=UTF-8',
+                },
+            })
+                .then((response) => response.json())
+                .then((json)=> console.log(json));
+    }
+    const loginFun = async (e) => {
+        e.preventDefault();
+        if(username === '' || email === '' || password === '' || phone === ''){
+            setError(true)
+        }else{
+            apiPost()
+            apiPost ? setSubmitted(true) : setSubmitted(false)
+            if (setSubmitted) {
+                setTimeout(() => navigate(location), 3000); 
+            }
+
+            // return <Redirect to='/signin' />
+            // signup.push({"email":email, "password":password,"number":phone, "username":username}   )
+        }
+        // console.log('jsad');
+        // console.log(password, email);
     }
     const googleAuth = () => {
         console.log(password, email);
@@ -25,17 +92,17 @@ function Register() {
                 <h2>Create Account</h2>
                 <small className="text-color">Please fill the form</small>
             </div>
+            {errorMessage()}
+            {successMessage()}
             <div className="input-sec-holder">
-                <CommonInput onChangeFun={setFullname} value={fullName} label="Full Name" />
-                <CommonInput onChangeFun={setPhone} value={phone} label="Phone Number" />
-                <CommonInput onChangeFun={setEmail} value={email} label="Email Address" />
-                <CommonInput onChangeFun={setPassword} value={password} label="Password" />
+                <CommonInput onChangeFun={handleUname} value={username} label="Username" type="text"/>
+                <CommonInput onChangeFun={handlePhone} value={phone} label="Phone Number" type="number" />
+                <CommonInput onChangeFun={handleEmail} value={email} label="Email" type="email" />
+                <CommonInput onChangeFun={handlePassword} value={password} label="Password" type="password" />
             </div>
             
             <div className="button-sec-holder">
-                {<CommonBtn onChangeClick={loginFun} label="Sign up" />
-                }
-              { /* <button className="enter-btn" ><Link to="/signin" className="">Sign up</Link></button>*/}
+                <CommonBtn onChangeFun={loginFun}  label="Sign up" type="submit" />
             </div>
 
             <div className="login-footer">
