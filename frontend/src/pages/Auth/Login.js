@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import CommonBtn from "./Acomponents/CommonBtn";
 import CommonInput from "./Acomponents/LoginInputes";
@@ -6,14 +6,18 @@ import { FcGoogle } from "react-icons/fc";
 import { login } from "../../actions/auth";
 import { connect } from 'react-redux';
 
-function Login() {
+function Login(props) {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
-  
+  useEffect(()=>{
+    console.log(props.auth);
+  },[props.auth])
     const loginFun = () => {
-       login()
+        console.log(props);
+       props.login({password, email})
+
        
     }
     const googleAuth = () => {

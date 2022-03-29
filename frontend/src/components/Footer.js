@@ -1,9 +1,20 @@
 //import {useState} from "react";
-import { Link,  useLocation } from "react-router-dom";
+import { Link,  useLocation, useNavigate } from "react-router-dom";
 import { AiFillHome, AiFillMessage, AiFillBell, AiFillProfile, AiFillPlusCircle} from "react-icons/ai";
-
+import { connect } from 'react-redux';
+import { useEffect } from "react";
+import { cheackAut } from "../actions/auth";
 
 function Footer({ auth }) {
+
+
+    const nav = useNavigate()
+    useEffect(()=>{
+        cheackAut()?nav("/feeds"):nav("/signin");
+
+      //  nav("/feeds")
+        
+    },[auth.isAuthenticated])
     const loc = useLocation()
     const cheeckLoc = (p) => {
         if (loc.pathname === p) {
@@ -12,7 +23,7 @@ function Footer({ auth }) {
         return false
     }
    
-    if(auth){
+    if(cheackAut()){
     return (
         <div className="footer_nave">
             <Link to="/feeds"><AiFillHome  className={`icons-footer-${cheeckLoc("/feeds")&&"active"}`}  /></Link>
@@ -26,4 +37,10 @@ function Footer({ auth }) {
     return <div className="not-auth"></div>
   }
 
-  export default Footer;
+  
+  const mapStateToProps = ( state ) => ({
+    auth: state.auth,
+    errors: state.errors
+  });
+
+  export default connect( mapStateToProps, )( Footer );

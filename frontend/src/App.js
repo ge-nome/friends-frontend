@@ -20,6 +20,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 
 
+
 function App() {
   return (
     <Provider store={ store }>
@@ -37,7 +38,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/add" element={<AddPost />} />
       </Routes>
-      <Footer auth={true}/>
+      <Footer/>
   </BrowserRouter>
   </Provider>
   );
