@@ -179,3 +179,18 @@ svg.icons-footer-active {
   color: rgb(255, 174, 67);
   font-size: 40px;
 }
+.welcome-message h1{
+width: 317px;
+height: 96px;
+left: 21px;
+top: 510px;
+margin: 0 auto;
+font-family: inherit;
+font-style: normal;
+font-weight: 700;
+font-size: 1em;
+line-height: 48px;
+text-align: center;
+
+color: #000000;
+}

@@ -8,6 +8,7 @@ import {
 import Login from './pages/Auth/Login';
 import Register from './pages/Auth/Register';
 import HomeFeed from './pages/Home/Home';
+import Welcome from './pages/Home/Welcome';
 import Footer from './components/Footer';
 
 
@@ -16,6 +17,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomeFeed />} />
+        <Route path="/welcome" element={<Welcome />} />
         <Route path="/feeds" element={<HomeFeed />} />
         <Route path="/signin" element={<Login />} />
         <Route path="/signup" element={<Register />}/>

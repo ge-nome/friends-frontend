@@ -44,7 +44,7 @@ function HomeFeed() {
         <div className="home-feed-container bottom-margin">
             <HomeHeader />
             
-            <div className="mood-enter-div"><Link to='/' ><div className="say-mood-div">How You Feeling Today?</div></Link></div>
+            <div className="mood-enter-div"><Link to='/' ><div className="say-mood-div">How Are You Feeling Today?</div></Link></div>
             <div className="card-holder">
                 {
                     users.map((e, i) => {
