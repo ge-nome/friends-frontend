@@ -559,3 +559,52 @@ button.cancel-btn__ {
   border-radius: 20px;
 }
 
+.sugest-header-container {
+  min-height: 100vh;
+}
+.list-of-sugest {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button.sugest-tabs_true {
+  border: none;
+  padding: 10px;
+  border-radius: 20px;
+  background: #ff5722;
+  color: white;
+  outline: none;
+}
+button.sugest-tabs_false {
+  border: none;
+  padding: 10px;
+  border-radius: 20px;
+  outline: none;
+  color: rgb(0, 0, 0);
+}
+
+.sugest-list-items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0px;
+  background: #dfdfdf;
+  padding: 10px;
+  border-radius: 17px;
+}
+.name-and-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.author_item {
+  font-size: small;
+}
+
+.name_item {
+  font-size: inherit;
+  font-weight: bold;
+  color: rgb(34, 34, 34);
+}

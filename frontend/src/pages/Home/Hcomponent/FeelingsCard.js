@@ -8,7 +8,7 @@ import SugestComp from "./SugestComp";
 
 
 function Cards({emoji, feelings, date, name}) {
-    const [menu, setMenu] = useState(true)
+    const [menu, setMenu] = useState(false)
     if (menu) {
         return <SugestComp menu={menu} setMenu={ setMenu}/>
    }
