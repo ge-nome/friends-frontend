@@ -29,12 +29,13 @@ export const conversation =  (body) => dispatch => {
 
    //list of contact
    export const getConversations =  () => dispatch => {
+
     const id = localStorage.getItem('friendapp');
     dispatch({type:LOADING})
     
      axios.get(`https://friendsapp-api.herokuapp.com/conversation/${id}`,)
       .then(res => {
-        console.log(id)
+        //console.log(id)
          dispatch({
              type:GET_USERS_FRIENDS,
              payload:res.data

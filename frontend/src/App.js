@@ -22,6 +22,8 @@ import Profile from './pages/Profile';
 import AddPost from './pages/AddPost';
 import { Provider } from 'react-redux';
 import store from './store';
+import Suggest from './components/Suggest';
+import SugestComp from './pages/Home/Hcomponent/SugestComp';
 
 
 
@@ -37,7 +39,7 @@ function App() {
         <Route path="/message_chatid" element={<MessageChat />} />
         <Route path="/signin" element={<Login />} />
         <Route path="/signup" element={<Register />}/>
-        <Route path="/suggestions" element={<Suggestions />} />
+        <Route path="/suggestion" element={<SugestComp />} />
         <Route path="/notification" element={<Notification />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/chat/:id" element={<MessageChat />} />

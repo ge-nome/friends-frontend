@@ -1,19 +1,21 @@
 import {useState} from "react";
-import { AiOutlineAudio } from "react-icons/ai";
+import { AiOutlineAudio, AiTwotoneBook } from "react-icons/ai";
+import { GiFilmProjector } from "react-icons/gi";
 
 import { connect } from 'react-redux';
+import HomeHeader from "./HomeHeader";
 
 function SugestComp({auth, menu, setMenu}) {
-  console.log(menu)
+ // console.log(menu)
 
   const [active, selectActiv] = useState("Music")
     return (
         <div className="sugest-header-container">
-          <button onClick={()=>setMenu(!menu)} className="cancel-btn__">Cancel</button>
+          <HomeHeader/>
           <div className="list-of-sugest">
-            <button onClick={()=>selectActiv("Music")} className={`sugest-tabs_${active==="Music"?true:false}`}>Music</button>
-            <button onClick={()=>selectActiv("Movies")} className={`sugest-tabs_${active==="Movies"?true:false}`}>Movies</button>
-            <button onClick={()=>selectActiv("Books")} className={`sugest-tabs_${active === "Books" ? true : false}`} >Books</button>
+            <button onClick={()=>selectActiv("Music")} className={`sugest-tabs_${active==="Music"?true:false}`}><AiOutlineAudio /> Music</button>
+            <button onClick={()=>selectActiv("Movies")} className={`sugest-tabs_${active==="Movies"?true:false}`}><GiFilmProjector/> Movies</button>
+            <button onClick={()=>selectActiv("Books")} className={`sugest-tabs_${active === "Books" ? true : false}`} ><AiTwotoneBook /> Books</button>
         </div>
           <div className="list-items-sugest">
               <ListComp type={active}/>
@@ -93,7 +95,7 @@ function SugestComp({auth, menu, setMenu}) {
         {books.map((e, i) => {
           return (
                <div key={i} className="sugest-list-items">
-                 <AiOutlineAudio />
+                 <GiFilmProjector />
                  <div className="name-and-title">
                    <div className="name_item">{e.name}</div>
                    <div className="author_item">{e.author}</div>
@@ -108,7 +110,7 @@ function SugestComp({auth, menu, setMenu}) {
         {books.map((e, i) => {
           return (
                <div key={i}  className="sugest-list-items">
-                 <AiOutlineAudio />
+                 <AiTwotoneBook />
                  <div className="name-and-title">
                    <div className="name_item">{e.name}</div>
                    <div className="author_item">{e.author}</div>

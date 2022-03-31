@@ -13,13 +13,11 @@ function MessageChat(props) {
     const [message, setMessage]=useState("")
     const [socket, setSocket]=useState(null)
     const [users, setUsers] = useState([
-        {
-            date:"11:11",
+        { date:"11:11",
             message:`no messages..`,
             img:"image/uimg.jpg",
             me:false
-        },
-        ,])
+        },])
     const params = useParams()
     const uid = params.id
     const nav = useNavigate()
@@ -28,7 +26,7 @@ function MessageChat(props) {
         nav("/feeds")
     }
     useEffect(() => {
-        props.conversation({myId:myid, yourId:myid})
+        props.conversation({myId:myid, yourId:uid})
       }, [myid, uid]);
 
       useEffect(() => {
@@ -62,7 +60,6 @@ function MessageChat(props) {
            
              socket.emit("private message", { message, uid, myid })
         }
-
         setMessage("")
       }
 

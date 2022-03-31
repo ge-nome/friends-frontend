@@ -584,7 +584,6 @@ button.cancel-btn__ {
 }
 .sugest-header-container {
   min-height: 100vh;
-  position: absolute;
   width: 95%;
   margin: auto;
   left: 0;
@@ -596,6 +595,8 @@ button.cancel-btn__ {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: #efefef;
+  border-radius: 20px;
 }
 
 button.sugest-tabs_true {
@@ -605,6 +606,10 @@ button.sugest-tabs_true {
   background: #ff5722;
   color: white;
   outline: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 button.sugest-tabs_false {
   border: none;
@@ -612,6 +617,10 @@ button.sugest-tabs_false {
   border-radius: 20px;
   outline: none;
   color: rgb(0, 0, 0);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .sugest-list-items {

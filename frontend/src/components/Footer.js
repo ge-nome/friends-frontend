@@ -1,6 +1,6 @@
 //import {useState} from "react";
 import { Link,  useLocation, useNavigate } from "react-router-dom";
-import { AiFillHome, AiFillMessage, AiFillBell, AiOutlineUser, AiFillPlusCircle} from "react-icons/ai";
+import { AiFillHome, AiFillMessage, AiFillBell, AiOutlineUnorderedList, AiFillPlusCircle} from "react-icons/ai";
 import { connect } from 'react-redux';
 import { useEffect } from "react";
 import { cheackAut } from "../actions/auth";
@@ -35,7 +35,7 @@ function Footer({ auth, cheackAut }) {
             <Link to="/message"><AiFillMessage className={`icons-footer-${cheeckLoc("/message")&&"active"}`}  /></Link>
             <Link to="/add"><AiFillPlusCircle  className={`icons-footer-${cheeckLoc("/add")&&"active"}`} /></Link>
             <Link to="notification"><AiFillBell className={`icons-footer-${cheeckLoc("/notification")&&"active"}`}  /></Link>
-            <Link to="/profile"><AiOutlineUser className={`icons-footer-${cheeckLoc("/profile")&&"active"}`} /></Link>
+            <Link to="/suggestion"><AiOutlineUnorderedList className={`icons-footer-${cheeckLoc("/profile")&&"active"}`} /></Link>
         </div>
         );
     }
