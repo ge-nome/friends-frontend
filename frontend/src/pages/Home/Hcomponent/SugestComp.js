@@ -4,6 +4,7 @@ import { AiOutlineAudio } from "react-icons/ai";
 import { connect } from 'react-redux';
 
 function SugestComp({auth, menu, setMenu}) {
+  console.log(menu)
 
   const [active, selectActiv] = useState("Music")
     return (
@@ -76,7 +77,7 @@ function SugestComp({auth, menu, setMenu}) {
        return <div>
          {books.map((e, i) => {
            return (
-                <div className="sugest-list-items">
+                <div key={i} className="sugest-list-items">
                   <AiOutlineAudio />
                   <div className="name-and-title">
                     <div className="name_item">{e.name}</div>
@@ -91,7 +92,7 @@ function SugestComp({auth, menu, setMenu}) {
       return <div>
         {books.map((e, i) => {
           return (
-               <div className="sugest-list-items">
+               <div key={i} className="sugest-list-items">
                  <AiOutlineAudio />
                  <div className="name-and-title">
                    <div className="name_item">{e.name}</div>
@@ -106,7 +107,7 @@ function SugestComp({auth, menu, setMenu}) {
       return <div>
         {books.map((e, i) => {
           return (
-               <div className="sugest-list-items">
+               <div key={i}  className="sugest-list-items">
                  <AiOutlineAudio />
                  <div className="name-and-title">
                    <div className="name_item">{e.name}</div>

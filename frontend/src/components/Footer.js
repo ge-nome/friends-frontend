@@ -1,9 +1,10 @@
 //import {useState} from "react";
 import { Link,  useLocation, useNavigate } from "react-router-dom";
-import { AiFillHome, AiFillMessage, AiFillBell, AiFillProfile, AiFillPlusCircle} from "react-icons/ai";
+import { AiFillHome, AiFillMessage, AiFillBell, AiOutlineUser, AiFillPlusCircle} from "react-icons/ai";
 import { connect } from 'react-redux';
 import { useEffect } from "react";
 import { cheackAut } from "../actions/auth";
+import Loading from "./Loadding";
 
 function Footer({ auth, cheackAut }) {
 
@@ -23,7 +24,10 @@ function Footer({ auth, cheackAut }) {
         }
         return false
     }
-   
+  
+   if(auth.loading){
+     return  <Loading/>
+   }
     if(auth.isAuthenticated){
     return (
         <div className="footer_nave">
@@ -31,7 +35,7 @@ function Footer({ auth, cheackAut }) {
             <Link to="/message"><AiFillMessage className={`icons-footer-${cheeckLoc("/message")&&"active"}`}  /></Link>
             <Link to="/add"><AiFillPlusCircle  className={`icons-footer-${cheeckLoc("/add")&&"active"}`} /></Link>
             <Link to="notification"><AiFillBell className={`icons-footer-${cheeckLoc("/notification")&&"active"}`}  /></Link>
-            <Link to="/profile"><AiFillProfile className={`icons-footer-${cheeckLoc("/profile")&&"active"}`} /></Link>
+            <Link to="/profile"><AiOutlineUser className={`icons-footer-${cheeckLoc("/profile")&&"active"}`} /></Link>
         </div>
         );
     }
@@ -41,7 +45,8 @@ function Footer({ auth, cheackAut }) {
   
   const mapStateToProps = ( state ) => ({
     auth: state.auth,
-    errors: state.errors
+    errors: state.errors,
+
   });
 
   export default connect( mapStateToProps, {cheackAut} )( Footer );

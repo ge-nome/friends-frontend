@@ -11,7 +11,7 @@ import HomeFeed from './pages/Home/Home';
 //<<<<<<< HEAD
 import Welcome from './pages/Home/Welcome';
 //=======
-import Welcome from './pages/Auth/Welcome';
+//import Welcome from './pages/Auth/Welcome';
 import Suggestions from './pages/Home/Suggestions';
 //>>>>>>> e19327f272ab96b7a4827503f0504b27351da550
 import Footer from './components/Footer';
@@ -38,9 +38,9 @@ function App() {
         <Route path="/signin" element={<Login />} />
         <Route path="/signup" element={<Register />}/>
         <Route path="/suggestions" element={<Suggestions />} />
-        <Route path="/welcome" element={<Welcome />} />
         <Route path="/notification" element={<Notification />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/chat/:id" element={<MessageChat />} />
         <Route path="/add" element={<AddPost />} />
       </Routes>
       <Footer/>

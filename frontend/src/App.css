@@ -154,7 +154,7 @@ img.profile-img {
 }
 button.clear-msg-btn {
   padding: 9px 27px;
-  border-radius: 30px;
+  border-radius: 10px;
   border: none;
   background: #225aff;
   color: white;
@@ -212,14 +212,14 @@ button.clear-msg-btn {
   margin-bottom: 99px;
 }
 svg.icons-footer-false {
-  color: white;
+  color: rgb(172, 170, 170);
   font-size: 30px;
 }
 svg.icons-footer-active {
-  color: rgb(255, 174, 67);
+  color: rgb(255, 255, 255);
   font-size: 40px;
 }
-<<<<<<< HEAD
+
 .welcome-message h1{
 width: 317px;
 height: 96px;
@@ -235,7 +235,7 @@ text-align: center;
 
 color: #000000;
 }
-=======
+
 img.user-profile {
   width: 40px;
   height: 40px;
@@ -554,6 +554,10 @@ button.send-message {
   border-radius: 10px;
   border: 1px solid #225aff;
   margin: 20px auto;
+  min-width: 100%;
+  outline: none;
+  cursor: pointer;
+  font-size: xx-large;
 }
 .select-felling:hover {
   background: #225aff;
@@ -575,9 +579,18 @@ button.cancel-btn__ {
   margin: 10px  auto;
   border-radius: 20px;
 }
-
+.chat-link{
+  color: white;
+}
 .sugest-header-container {
   min-height: 100vh;
+  position: absolute;
+  width: 95%;
+  margin: auto;
+  left: 0;
+  right: 0;
+  background: white;
+  overflow-y: scroll;
 }
 .list-of-sugest {
   display: flex;
@@ -625,4 +638,95 @@ button.sugest-tabs_false {
   font-weight: bold;
   color: rgb(34, 34, 34);
 }
->>>>>>> e19327f272ab96b7a4827503f0504b27351da550
+
+a.profile-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #c3bfbf;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: xxx-large;
+}
+.user-profile {
+  min-width: 50px;
+  min-height: 50px;
+  background: #d2d2d2;
+  border-radius: 50%;
+}
+
+.profile-img {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  border-radius: 50%;
+  font-size: xxx-large;
+}
+
+
+.loading-screen {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100vh;
+  background: #2222229c;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
+.loading-ball{
+  width: 25px;
+  height: 25px;
+  background: rgb(255, 255, 255);
+  border-radius: 50%;
+  margin: 73px auto;
+  transition: all 2s ease-in;
+  animation: ballLoading  2s 2s infinite;
+  -webkit-animation: ballLoading  2s 2s infinite;
+  -webkit-transition: all 2s ease-in;
+  -moz-transition: all 2s ease-in;
+  -ms-transition: all 2s ease-in;
+  -o-transition: all 2s ease-in;
+}
+
+.loading-bar{
+ 
+  width: 30px;
+  height: 100px;
+  border-radius: 30px;
+  margin: auto;
+ background-color:  #00000054;
+}
+@keyframes ballLoading{
+  0%{
+      margin: 73px auto
+  }
+  25%{
+      margin: 2px auto
+  }
+  50%{
+      margin: 73px auto
+  }
+  100%{
+      margin: 2px auto
+  }
+}
+
+button.chat-delete {
+  padding: 5px;
+  font-size: 30px;
+  background: none;
+  border: none;
+  color: rgb(255, 255, 255);
+}

@@ -1,39 +1,30 @@
 
-import {useState} from "react"
+import {useEffect, useState} from "react"
 import { Link } from "react-router-dom";
 import BackBtn from "../../components/BackBtn";
 import Search from "../../components/Search";
+import ProfileImg from "../Home/Hcomponent/ProfileImg";
+import { connect } from "react-redux";
+import { getConversations } from "../../actions/messages";
 
 
 
-function Message() {
+function Message(props) {
+
+
     const [users, setUsers] = useState([{
         name: "Musterfa",
         date: "11:12",
         message:"how fa"
-    },  
-    { name: "Michel",
-    date: "13:12",
-    message:"Yoo sup"},
+    },]);
 
-    { name: "Comrade",
-    date: "01:12",
-    message:"Bring Garry"},
-    { name: "Michel",
-    date: "13:12",
-    message:"Yoo sup"},
+    useEffect(()=>{
+        props.getConversations()
+    },[])
 
-    { name: "Comrade",
-    date: "01:12",
-    message:"Bring Garry"},
-    { name: "Michel",
-    date: "13:12",
-    message:"Yoo sup"},
-
-    { name: "Comrade",
-    date: "01:12",
-    message:"Bring Garry"}
-])
+    useEffect(()=>{
+        console.log(props)
+    },[props.auth])
 
    
     return (
@@ -49,7 +40,7 @@ function Message() {
                             users.map((e, i)=>{
                                 return (<Link to="/message_chatid" key={i} className="user-row">
                                            <div className="img-name">
-                                                <img className="user-profile" src="image/uimg.jpg" alt="fr"/>
+                                                <ProfileImg/>
                                                 <div className="name-message">
                                                     <div className="name">{e.name}</div>
                                                     <div className="message">{e.message}</div>
@@ -68,4 +59,14 @@ function Message() {
     );
   }
 
-  export default Message;
+
+    
+  const mapStateToProps = ( state ) => ({
+    auth: state.auth,
+    errors: state.errors,
+    posts: state.posts
+  });
+
+  export default connect( mapStateToProps, {getConversations} )( Message );
+ 
+  

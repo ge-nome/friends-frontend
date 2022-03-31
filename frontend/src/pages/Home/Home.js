@@ -1,57 +1,40 @@
 
-import {useState} from "react"
+import {useEffect, useState} from "react"
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { getPosts } from "../../actions/post";
 import Cards from "./Hcomponent/FeelingsCard";
 import HomeHeader from "./Hcomponent/HomeHeader";
 
 
 
-function HomeFeed() {
+function HomeFeed(props) {
+    const [users, setUsers] = useState([])
+
+   useEffect(()=>{
+        props.getPosts()
+        
+   },[])
+
+   useEffect(()=>{
+   if(props.posts.post){
+    setUsers(props.posts.post)
+   }
    
-    const [users, setUsers] = useState([{
-        name: "Musterfa",
-        date: "11:12 pm 2 2022",
-        feelings:"Happy",
-        emoji:"😊"
-    }, {
-        name: "Latifer",
-        date: "3:12 am 3 2022",
-        feelings: "Sad",
-        emoji:"😔"
-    }, {
-        name: "Lorico",
-        date: "11:12 pm 2 2022",
-        feelings: "Angry",
-        emoji:"😡"
-    }, {
-        name: "Tapatapa",
-        date: "11:12 pm 2 2022",
-        feelings: "Sick",
-        emoji:"🤢"
-    },{
-        name: "Michel",
-        date: "11:12 pm 2 2022",
-        feelings: "Smart",
-        emoji:"🧐"
-    },{
-        name: "Babilon",
-        date: "11:12 pm 2 2022",
-        feelings: "Funny",
-        emoji:"🥴"
-    }])
+},[props.posts.post])
 
    
     return (
         <div className="home-feed-container bottom-margin">
             <HomeHeader />
             
-            <div className="mood-enter-div"><Link to='/' ><div className="say-mood-div">How Are You Feeling Today?</div></Link></div>
+            <div className="mood-enter-div"><Link to='/add' ><div className="say-mood-div">How Are You Feeling Today?</div></Link></div>
             <div className="card-holder">
                 {
                     users.map((e, i) => {
                         return (
                             
-                               <Cards key={i} name={e.name} date={e.date} feelings={e.feelings} emoji={e.emoji} />
+                               <Cards key={i} name={e.username} date={e.createdAt} feelings={e.message} emoji={e.emoji} id={e.userId} />
                             
                         )
                     })
@@ -62,5 +45,12 @@ function HomeFeed() {
         </div>
     );
   }
+ const mapStateToProps = ( state ) => ({
+    auth: state.auth,
+    errors: state.errors,
+    posts: state.posts
+  });
 
-  export default HomeFeed;
+  export default connect( mapStateToProps, {getPosts} )( HomeFeed );
+ 
+  //export default HomeFeed;

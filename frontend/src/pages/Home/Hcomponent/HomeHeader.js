@@ -4,7 +4,7 @@ import ProfileImg from "./ProfileImg";
 import { connect } from 'react-redux';
 
 function HomeHeader({auth}) {
-
+///console.log(auth)
 
     return (
         <div className="home-header-container">
@@ -12,7 +12,7 @@ function HomeHeader({auth}) {
                 <div className="h-hello">Hello,</div>
                 <div className="h-Name">{ auth.user.username}</div>
             </div>
-            <Link to="/profile"><ProfileImg/></Link>
+            <ProfileImg />
         </div>
     );
   }
